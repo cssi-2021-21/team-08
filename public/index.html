@@ -37,8 +37,40 @@
         body { border-top: 16px solid #ffa100; }
       }
     </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="../css/cards.css">
+
   </head>
   <body>
+      <!-- START NAV -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#">
+            <img src="https://cdn.emk.dev/templates/bulma-logo-light.png" alt="Logo">
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active"> Home </a>
+            <a class="navbar-item"> Examples </a>
+            <a class="navbar-item"> Features </a>
+            <a class="navbar-item"> Team </a>
+            <a class="navbar-item"> Archives </a>
+            <a class="navbar-item"> Help </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- END NAV -->
     <div id="message">
       <h2>Welcome</h2>
       <h1>Firebase Hosting Setup Complete</h1>
