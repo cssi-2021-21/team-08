@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fire Notes</title>
+    <title>Stock Portfolio</title>
 
     <!--MAYBE DELETE <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -35,10 +35,11 @@
                 <div class="columns is-vcentered">
                     <div class="column is-6 is-offset-3">
                         <h1 class="title is-2">
-                            Welcome to 🔥Fire Notes📝!
+                            Welcome to 📈 Stock Portfolio 📊!
                         </h1>
+                        <br>
                         <h2 class="subtitle is-4">
-                            Log in to view your notes or create a new one. 
+                            Here you can view your stocks and monitor their progress. 
                         </h2>
                         <br>
                         <p class="has-text-centered">
@@ -46,6 +47,14 @@
                                 Sign In
                             </a>
                         </p>
+                       
+                                    <button class ="button is-medium is-info is-outlined" onclick = "saveEditedNote()">
+                                        Buy
+                                    </button>
+                                    <button class ="button is-medium is-info is-outlined" onclick ="closeEditModal()">
+                                        Sell
+                                    </button>
+                                
                     </div>
                 </div>
             </div>
