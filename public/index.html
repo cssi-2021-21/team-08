@@ -21,14 +21,15 @@
     <script defer src="/__/firebase/8.8.1/firebase-analytics.js"></script>
     <script defer src="/__/firebase/8.8.1/firebase-remote-config.js"></script>
     <script defer src="/__/firebase/8.8.1/firebase-performance.js"></script>
+    <script src="js/cardsData.js"></script>
+    <script src="js/signIn.js"></script>
+
     <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
     -->
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <script src="js/signIn.js"></script>
     
-
     <style media="screen">
       body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
       #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
@@ -109,10 +110,6 @@
                   </div>
                   <div class="media-content">
                     <p class="title is-4 no-padding">{{card.user.title}}</p>
-                    <p>
-                      <span class="title is-6">
-                        <a :href=`http://twitter.com/${card.user.handle}`> {{card.user.handle}} </a> </span> </p>
-                    <p class="subtitle is-6">{{card.user.title}}</p>
                   </div>
                 </div>
                 <div class="content">
@@ -142,7 +139,7 @@
       </div>
     </footer>
      <!-- end Credit footer -->
-      <script src="../js/cardsData.js"></script>
+     
      <script>
       var app = new Vue({
         el: '#app',
