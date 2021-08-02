@@ -72,13 +72,16 @@
       </div>
     </nav>
     <!-- END NAV -->
-    <a class="button is-medium is-info is-outlined" onclick="signIn()"> Sign In </a>
+
     <!-- START CARDS -->
      <div class="container">
       <div class="section">
         <div class="columns">
           <div class="column has-text-centered">
             <h1 class="title" style="color: black;">Stock Landing Page</h1><br>
+            <p class="has-text-centered">
+                <a class="button is-medium is-info is-outlined" onclick="signIn()"> Sign In </a>
+            </p>    
           </div>
           <input
           id="search"
@@ -120,6 +123,7 @@
         </div>
       </div>
     </div>
+   
     <!-- END CARDS -->
     <!-- start Credit footer -->
      <footer class="footer">
@@ -136,8 +140,8 @@
       </div>
     </footer>
      <!-- end Credit footer -->
-     <script src="../js/cardsData.js"></script>
-    <script>
+      <script src="../js/cardsData.js"></script>
+     <script>
       var app = new Vue({
         el: '#app',
         data: {
