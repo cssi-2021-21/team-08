@@ -1,9 +1,13 @@
 .margin {
     margin-top: 40px;
+    margin-left: 40px;
 }
 .margin2 {
     margin-top: 40px;
     margin-left: 40px;
+}
+.hugeMargin {
+    margin-top: 80px;
 }
 .background {
 background-color:  #a1caf1;
