@@ -1,13 +1,25 @@
 .margin {
     margin-top: 40px;
+    margin-left: 40px;
 }
 .margin2 {
     margin-top: 40px;
     margin-left: 40px;
+}
+.margins {
+    margin-top: 40px;
+}
+.hugeMargin {
+    margin-top: 80px;
 }
 .background {
 background-color:  #a1caf1;
 }
 #back {
     margin-top: 40px
+}
+.borderR {
+    border-radius: 25px;
+    width: 500;
+    height: 500;
 }

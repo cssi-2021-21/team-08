@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fire Notes</title>
@@ -10,15 +11,15 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" href="css/stockInfo.css">
     <style type="text/css">
-      html,
-      body {
-          font-family: 'Open Sans';
-      }
+        html,
+        body {
+            font-family: 'Open Sans';
+        }
 
-      img {
-          padding: 5px;
-          border: 1px solid #ccc;
-      }
+        img {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
     </style>
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
@@ -26,55 +27,80 @@
     <script defer src="/__/firebase/8.3.1/firebase-auth.js"></script>
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-  </head>
-  <body class="background">
+</head>
 
-    <section class="section">
-    <div class="container">
-      <h1 class="title margin">
-        Stock Info Page
-      </h1>
-      <p class="subtitle margin2">
-        Company Name: <strong>Dino Nugs</strong>
-      </p>
-    </div>
-    <div>
-        <img src="https://norr.com/wp-content/uploads/2019/07/CSC-gallery-06-1920x1080.jpg"
-      alt="Company Building Photo" width="750" height="800"/>
-    </div>
-    <div>
-        <h2 id="back">
-            <strong>Background Info:</strong>
-        </h2>
-        <p>
-            Square, Inc. is an American financial services and 
-            digital payments company based in San Francisco, '
-            California. The company was founded in 2009 by Jack 
-            Dorsey and Jim McKelvey and launched its first platform 
-            in 2010. It has been traded as a public company on the 
-            New York Stock Exchange since November 2015 with the 
-            ticker symbol SQ. As of 2020, Square's market 
-            capitalization is valued at over US$100 billion.   
-        </p>
-    </div>
-    <div>
-        <h2 id="back">
-            <strong>Market Trends:</strong>
-        </h2>
-        <p>
-            Information that is difficult to organize
-        </p>
-    </div>
-    <div>
-        <h2 id="back">
-            <strong>Price Fluctuation</strong>
-        </h2>
-        <p>
-            
-        </p>
-    </div>
-  </section>
-  </body>
-    <script src="js/signIn.js"></script>
-  </body>
+<body class="background columns">
+
+    <section class="section column is-half">
+        <div class="container">
+            <h1 class="title margin">
+                Stock Info Page
+            </h1>
+            <p class="subtitle margin2">
+                Company Name: <strong>Dino Nugs</strong>
+            </p>
+        </div>
+        <div>
+            <img src="https://norr.com/wp-content/uploads/2019/07/CSC-gallery-06-1920x1080.jpg"
+                alt="Company Building Photo" width="750" height="800" />
+        </div>
+        <div>
+            <h2 id="back">
+                <strong>Background Info:</strong>
+            </h2>
+            <p>
+                Square, Inc. is an American financial services and
+                digital payments company based in San Francisco, '
+                California. The company was founded in 2009 by Jack
+                Dorsey and Jim McKelvey and launched its first platform
+                in 2010. It has been traded as a public company on the
+                New York Stock Exchange since November 2015 with the
+                ticker symbol SQ. As of 2020, Square's market
+                capitalization is valued at over US$100 billion.
+            </p>
+        </div>
+        <div>
+            <h2 id="back">
+                <strong>Market Trends:</strong>
+            </h2>
+            <p>
+                Information that is difficult to organize
+            </p>
+        </div>
+        <div>
+            <h2 id="back">
+                <strong>Price Fluctuation:</strong>
+            </h2>
+            <p>
+                Blah Blah Blah
+            </p>
+        </div>
+    </section>
+    <section class="column is-half">
+        <div class="hugeMargin">
+            <div class="card borderR">
+                <div class="card-content">
+                    <p>
+                        Stock Name: Sqaure, Inc. (SQ)
+                    </p>
+                    <p>
+                        Price: $275.95
+                    </p>
+                    <p>
+                        Recent Fluctuation Trends: 11.68% +28.86 Today
+                    </p>
+                </div>
+            </div>
+            <div class="card margins borderR" $card-radius=0.20rem>
+                <div class="card-content">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fgraphic_design%2F40023-6-graph-image-free-png-hq.png&f=1&nofb=1">
+                    </img>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="js/signIn.js"></script>
+</body>
+
 </html>
