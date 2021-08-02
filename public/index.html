@@ -51,9 +51,6 @@
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="https://cdn.emk.dev/templates/bulma-logo-light.png" alt="Logo">
-          </a>
           <span class="navbar-burger burger" data-target="navbarMenu">
             <span></span>
             <span></span>
@@ -63,7 +60,7 @@
         <div id="navbarMenu" class="navbar-menu">
           <div class="navbar-end">
             <a class="navbar-item is-active"> Home </a>
-            <a class="navbar-item" href="stockInfo.html"> Examples </a>
+            <a class="navbar-item" href="stockInfo.html"> Stock Info </a>
             <a class="navbar-item"> Features </a>
             <a class="navbar-item"> Team </a>
             <a class="navbar-item"> Archives </a>
@@ -97,7 +94,7 @@
           <div v-for="card in cardData" key="card.id" class="column is-4">
             <div class="card large">
               <div class="card-image">
-                <figure class="image is-16by9">
+                <figure>
                   <img :src="card.image" alt="Image">
                 </figure>
               </div>
@@ -114,7 +111,6 @@
                 </div>
                 <div class="content">
                   {{card.content}}
-                  <div class="background-icon"><span class="icon-twitter"></span></div>
                 </div>
               </div>
             </div>
