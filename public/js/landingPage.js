@@ -1,4 +1,3 @@
-const 
 const queryField = document.querySelector("#search");
 const submitButton = document.querySelector("#submit");
 
@@ -16,11 +15,23 @@ submitButton.addEventListener("click", (e) => {
     fetch(urlToFetch)
         .then(response => response.json())
         .then(myJson => {
-            
+            let currStock = {
+                symbol: myJson["symbol"],
+                company: myJson["companyName"],
+                latestPrice: myJson["latestPrice"],
+                changePct: myJson["changePercent"],
+                change: myJson["change"]
+            };
+            console.log(currStock)
+            displayStockCard(currStock);
         })
         .catch(error => {
             console.log("error: ", error)
         })
-
-        
 })
+
+const displayStockCard = (stock) => {
+    return `
+        //updating html of cards using general stock data
+    `;
+}
