@@ -24,6 +24,7 @@ submitButton.addEventListener("click", (e) => {
     console.log("encoded: ", sym);
     
     let stock = new StockData(sym);
+    console.log("in ui", stock);
 });
 
 

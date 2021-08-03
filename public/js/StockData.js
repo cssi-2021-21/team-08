@@ -1,6 +1,7 @@
 class StockData {
     constructor(sym) {
         this.symbol = sym;
+        
         this.company = null;
         this.latestPrice = null;
         this.changePct = null;
@@ -9,9 +10,14 @@ class StockData {
 
         this.news = [];
 
-        this.getRequest("quote");
+        let j = this.getRequest2("quote");
+        console.log("J=", j);
+
+        this.company = j["company"];
         this.getRequest("logo");
         this.getRequest("news/last/10")
+
+        console.log("in stockData: ", this.company);
     }
 
     getRequest(request) {
@@ -25,6 +31,20 @@ class StockData {
             .then((myJson) => {
                 this.filterData(request, myJson);
             })
+            .catch((error) => {
+                console.log("error: ", error)
+            });
+    }
+
+    getRequest2(request) {
+        //const urlToFetch = `https://ticker-2e1ica8b9.now.sh//keyword/${sym}`;
+        //const urlToFetch = `https://cloud.iexapis.com/stable/${sym}/chart/1m?token=pk_${apiKey}&includeToday=true`; //production
+        //const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${sym}/chart/1m?token=${apiKey}&includeToday=true`; //sandbox --> chart endpoint = historical data 
+        const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}/?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
+       
+        fetch(urlToFetch)
+            .then((response) => response.json())
+            
             .catch((error) => {
                 console.log("error: ", error)
             });
