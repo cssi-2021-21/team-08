@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign In Page</title>
+    <title> Personal Stock Portfolio</title>
 
     <!--MAYBE DELETE <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -41,9 +41,9 @@
         <div id="navbarMenu" class="navbar-menu">
           <div class="navbar-end">
             <a class="navbar-item" href="index.html"> Home </a>
-            <a class="navbar-item is-active"> Sign In</a> 
+            <a class="navbar-item" href="signIn.html"> Sign In </a>
             <a class="navbar-item" href="stockInfo.html"> Stock Info </a>
-            <a class="navbar-item" href="stockPortfolio.html"> Personal Portfolio </a>
+            <a class="navbar-item is-active"> Personal Portfolio </a>
           </div>
         </div>
       </div>
@@ -55,39 +55,18 @@
                 <div class="columns is-vcentered">
                     <div class="column is-6 is-offset-3">
                         <h1 class="title is-2">
-                            Sign In to 📈 Stock Portfolio 📊!
+                            Welcome to 📈 Stock Portfolio 📊!
                         </h1>
                         <br>
-                        <h2 class="subtitle is-4"> Create an account to view stocks and monitor progress. </h2>
+                        <h2 class="subtitle is-4"> Here you can view stocks and monitor progress. </h2>
                         <br>
                         <p class="has-text-centered">
-                            <a id="lol" class="button is-medium is-info is-outlined" onclick="signIn()"> Sign In with G Mail</a>
+                            <a id="lol" class="button is-medium is-info is-outlined"> Sign In </a>
                         </p>
-                        <br>
-                        <form action="/action_page.php">
-                            <h2 class="subtitle is-4"> Create an Account </h2>
-                            <br>
-                            <div class="input-container">
-                                <label class="label">Username</label>
-                                <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-success" type="text" placeholder ="Username" name="username">
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <label class="label">Email</label>
-                                <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-success" type="email" placeholder ="Email">
-                                </div>
-                            </div>
-                            <div class="input-container">
-                                <label class="label">Password</label>
-                                <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-success" type="text" placeholder ="Username" name="username">
-                                </div>
-                            </div>
-                            <br>
-                            <button type="submit" class="button is-medium is-info is-outlined" onclick="createAccount()"> Register </button>
-                        </form>     
+                       
+                        <button class ="button is-medium is-info is-outlined" onclick = "saveEditedNote()"> Buy </button>
+                        <button class ="button is-medium is-info is-outlined" onclick ="closeEditModal()"> Sell </button>
+                                
                     </div>
                 </div>
             </div>
