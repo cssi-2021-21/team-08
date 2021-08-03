@@ -6,11 +6,12 @@ class StockData {
         this.changePct = null;
         this.change = null;
         this.logo = null;
-        
+
         this.news = [];
 
         this.getRequest("quote");
         this.getRequest("logo");
+        this.getRequest("news/last/10")
     }
 
     getRequest(request) {
@@ -18,8 +19,6 @@ class StockData {
         //const urlToFetch = `https://cloud.iexapis.com/stable/${sym}/chart/1m?token=pk_${apiKey}&includeToday=true`; //production
         //const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${sym}/chart/1m?token=${apiKey}&includeToday=true`; //sandbox --> chart endpoint = historical data 
         const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}/?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
-        
-        console.log(request, urlToFetch);
        
         fetch(urlToFetch)
             .then((response) => response.json())
@@ -32,10 +31,8 @@ class StockData {
     }
 
     filterData(type, data) {
-        console.log("entering filter");
         if(type === "logo") {
             this.logo = data["url"];
-            console.log(this);
         }
         else if (type === "quote"){
             this.company = data["companyName"];
@@ -52,11 +49,6 @@ class StockData {
                 });
             }
         }
-    }
-
-    headlines() {
-        this.getRequest("news/last/10")        
-        return this.news;
     }
 
 }
