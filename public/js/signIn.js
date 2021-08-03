@@ -28,3 +28,19 @@ const signIn = () => {
     console.log(err);
   });
 }
+
+const createAccount = () =>{
+    var provider = firebase.auth().createUserWithEmailAndPassword(email, password)
+    firebase.auth()
+    .signInWithPopup(provider)
+    .then((userCredential) => {
+      // Signed in 
+     var user = userCredential.user;
+     // ...
+     })
+    .catch((error) => {
+     var errorCode = error.code;
+     var errorMessage = error.message;
+     // ..
+     });
+}
