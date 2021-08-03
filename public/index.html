@@ -131,19 +131,24 @@
             <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>.
             The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. <br>
           </p>
+          <p>
+            <a href="https://iexcloud.io">Data provided by IEX Cloud.</a>
+          </p>
         </div>
       </div>
     </footer>
      <!-- end Credit footer -->
      
      <script>
-      var app = new Vue({
-        el: '#app',
-        data: {
-          cardData: cardsData
-        }
-      })
+        var portfolio = cardsData;
+        var app = new Vue({
+            el: '#app',
+            data: {
+                cardData: portfolio
+            }
+        })
       </script>
+
       <script src="js/key.js"></script>
       <script type="module" src="js/landingPage.js"></script>
   </body>
