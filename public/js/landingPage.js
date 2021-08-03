@@ -9,7 +9,6 @@ submitButton.addEventListener("click", (e) => {
     console.log("encoded: ", sym);
     
     let stock = new StockData(sym);
-    console.log(stock.headlines());
 });
 
 const displayStockCard = (stock) => {
