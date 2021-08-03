@@ -8,7 +8,8 @@ submitButton.addEventListener("click", (e) => {
     let sym = encodeURIComponent(queryField.value);
     console.log("encoded: ", sym);
     
-    const stock = new StockData(sym);
+    let stock = new StockData(sym);
+    console.log(stock.headlines());
 });
 
 const displayStockCard = (stock) => {
