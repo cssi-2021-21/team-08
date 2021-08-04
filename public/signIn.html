@@ -67,26 +67,32 @@
                         <form action="/action_page.php">
                             <h2 class="subtitle is-4"> Create an Account </h2>
                             <br>
-                            <div class="input-container">
+                            <div class="field">
                                 <label class="label">Username</label>
                                 <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-success" type="text" placeholder ="Username" name="username">
+                                    <input id="usernameInput" class="input is-success" type="text" placeholder ="Username" name="username">
                                 </div>
                             </div>
-                            <div class="input-container">
+                            <div class="field">
                                 <label class="label">Email</label>
                                 <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-success" type="email" placeholder ="Email">
+                                    <input id="emailInput" class="input is-success" type="email" placeholder ="Email">
                                 </div>
                             </div>
-                            <div class="input-container">
+                            <div class="field">
                                 <label class="label">Password</label>
                                 <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-success" type="text" placeholder ="Password" name="username">
+                                    <input id="passwordInput" class="input is-success" type="text" placeholder ="Password" name="password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label"> Confirm Password</label>
+                                <div class="control has-icons-left has-icons-right">
+                                    <input id="confirmPasswordInput" class="input is-success" type="text" placeholder ="Confirm Password" name="password">
                                 </div>
                             </div>
                             <br>
-                            <button type="submit" class="button is-medium is-info is-outlined" onclick="createAccount()"> Register </button>
+                            <button type="submit" class="button is-medium is-info is-outlined"> Register </button>
                         </form>     
                     </div>
                 </div>
