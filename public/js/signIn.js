@@ -56,17 +56,11 @@ document.querySelector(".modal-background").addEventListener("click", () => {
     document.querySelector("#loginButton").addEventListener("click", listenerFunction);
 
     document.querySelector("#signUpButton").addEventListener("click", () => {
-        const confirmPass = document.querySelector("#passwordConfirmInput");
-        confirmPass.classList.remove("is-hidden");
         document.querySelector("#signUpButton").classList.add("is-hidden");
         document.querySelector("#loginButton").innerHTML = "Create New Account";
         buttonAction = () => {
             const email = document.querySelector("#emailInput").value;
             const password = document.querySelector("#passwordInput").value;
-            const password2 = confirmPass.value;
-            console.log(password2);
-            console.log(password);
-            if (password2 == password) {
                 firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then(() => {
                         window.location = "stockPortfolio.html";
@@ -74,9 +68,6 @@ document.querySelector(".modal-background").addEventListener("click", () => {
                     .catch((error) => {
                         alert(error);
                     });
-            } else {
-                alert("Your passwords don't match.");
-            }
         };
     })
 }
