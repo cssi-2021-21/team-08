@@ -1,3 +1,5 @@
+import { StockData } from "./StockData";
+
 /*
     where we push/pull data to/from the database
     functions called globally from other files
@@ -27,7 +29,12 @@ export const getBalance = (user) => {
     });
 }
 
-export const buyStock = (user, stockVals) => {
-    firebase.database().ref(`/users/${user}/portfolio`).update(stockVals);
+export const buyStock = (user, sym, volume) => {
+    let stock = new StockData(sym);
+    let stockUpdates = {
+        stock,
+        
+    }
+    firebase.database().ref(`/users/${user}/portfolio`).update({stock});
 }
 

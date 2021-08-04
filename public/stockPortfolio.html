@@ -49,6 +49,7 @@
       </div>
     </nav>
     <!-- END NAV -->
+
     <section class="hero is-fullheight is-default is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -62,8 +63,7 @@
                         <br>
                        
                         <button class ="button is-medium is-info is-outlined" onclick = "buyStock()"> Buy </button>
-                        <button class ="button is-medium is-info is-outlined" onclick ="closeBuyModal()"> Sell </button>
-                                
+                        <button class ="button is-medium is-info is-outlined" onclick ="closeBuyModal()"> Sell </button>      
                     </div>
                     <div id="buyModal" class="modal">
                         <div class="modal-background"></div>
@@ -85,6 +85,24 @@
             </div>
         </div>
     </section>
+
+    <!-- START CARDS -->
+     <div class="container">
+      <div class="section">
+        <div class="columns">
+            <div class="column is-three-quarter">
+                <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
+            </div>
+            <div class="column is-one-quarter">
+                <button id="submit" class="button is-normal">Search</button>
+            </div>
+        </div>
+        <div id="app" class="row columns is-multiline">
+          <!--Card Replacement Happens Here-->
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="js/stockPortfolio.js"></script>
   </body>
 </html>
