@@ -60,18 +60,31 @@
                         <br>
                         <h2 class="subtitle is-4"> Here you can view stocks and monitor progress. </h2>
                         <br>
-                        <p class="has-text-centered">
-                            <a id="lol" class="button is-medium is-info is-outlined"> Sign In </a>
-                        </p>
                        
-                        <button class ="button is-medium is-info is-outlined" onclick = "saveEditedNote()"> Buy </button>
-                        <button class ="button is-medium is-info is-outlined" onclick ="closeEditModal()"> Sell </button>
+                        <button class ="button is-medium is-info is-outlined" onclick = "buyStock()"> Buy </button>
+                        <button class ="button is-medium is-info is-outlined" onclick ="closeBuyModal()"> Sell </button>
                                 
+                    </div>
+                    <div id="buyModal" class="modal">
+                        <div class="modal-background"></div>
+                        <div class="modal-card">
+                            <section class="modal-card-body">
+                                <label class="label">Title</label>
+                                <input class="input is-normal" id="editTitleInput" type="text">
+                                <label class="label">Text</label>
+                                <input class="input is-normal" id="editTextInput" type="text">
+                                <input id="stockID" type="hidden">
+                            </section>
+                            <footer class="modal-card-foot">
+                                <button class="button is-success" onclick="saveBuy()">Confirm buy</button>
+                                <button class="button" onclick="closeBuyModal()">Cancel</button>
+                            </footer>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <script src="js/signIn.js"></script>
+    <script type="module" src="js/stockPortfolio.js"></script>
   </body>
 </html>

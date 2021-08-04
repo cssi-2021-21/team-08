@@ -1,4 +1,3 @@
-
 class StockData {
     constructor(sym) {
         this.symbol = sym;
