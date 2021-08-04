@@ -1,6 +1,5 @@
 .margin {
     margin-top: 40px;
-    margin-left: 40px;
 }
 .margin2 {
     margin-top: 40px;
@@ -15,11 +14,14 @@
 .background {
 background-color:  #a1caf1;
 }
-#back {
-    margin-top: 40px
+#center {
+    text-align: center;
 }
 .borderR {
     border-radius: 25px;
     width: 500;
     height: 500;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
