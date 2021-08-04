@@ -31,10 +31,16 @@ export const getBalance = (user) => {
 
 export const buyStock = (user, sym, volume) => {
     let stock = new StockData(sym);
-    let stockUpdates = {
-        stock,
-        
-    }
-    firebase.database().ref(`/users/${user}/portfolio`).update({stock});
+
+    stock.push({
+        shares: volume,
+        buyPrice: stock.latestPrice,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+    })
+    firebase.database().ref(`/users/${user}/portfolio`).push({stock});
+}
+
+export const sellStock = () => {
+    
 }
 

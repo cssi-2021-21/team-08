@@ -26,6 +26,9 @@
     <script defer src="/__/firebase/8.3.1/firebase-auth.js"></script>
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    
+    <script type="module" src="/js/stockPortfolio.js"></script>
+    <script src="js/key.js"></script>
   </head>
   <body>
     <!-- START NAV -->
@@ -61,9 +64,9 @@
                         <br>
                         <h2 class="subtitle is-4"> Here you can view stocks and monitor progress. </h2>
                         <br>
-                       
-                        <button class ="button is-medium is-info is-outlined" onclick = "buyStock()"> Buy </button>
-                        <button class ="button is-medium is-info is-outlined" onclick ="closeBuyModal()"> Sell </button>      
+                        <button class ="button is-medium is-info is-outlined" id="testBuy"> Test Buy </button>
+                        <button class ="button is-medium is-info is-outlined" onclick="saveBuy()"> Buy </button>
+                        <button class ="button is-medium is-info is-outlined" onclick="closeBuyModal()"> Sell </button>      
                     </div>
                     <div id="buyModal" class="modal">
                         <div class="modal-background"></div>
@@ -103,6 +106,6 @@
       </div>
     </div>
 
-    <script type="module" src="js/stockPortfolio.js"></script>
+
   </body>
 </html>

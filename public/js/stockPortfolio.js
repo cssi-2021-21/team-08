@@ -8,10 +8,11 @@
     //confirm # of shares <= volume bought pulled from database
         //pull most recent buy price from database, calculate earnings or ask for new input shares
         //update database w new volume, user balance 
-import * as helpers from '/js/database.js';        
-
+//import * as helpers from '/js/database.js';        
+import {StockData} from '/js/StockData.js';
 let googleUserId;
 
+/*
 window.onload = (event) => {
   // Use this to retain user state between html pages.
   firebase.auth().onAuthStateChanged(function (user) {
@@ -24,7 +25,7 @@ window.onload = (event) => {
       //window.location = 'index.html';
     };
   });
-};
+};*/
 
 /*
 const getStocks = (userId) => {
@@ -103,7 +104,7 @@ const createCard = (stock, stockID) => {
         //confirm and close modal or ask for new input shares
             //push stock symbol, timestamp, buy price, volume to database
 
-const buyStock = (stockID) => {
+const handleBuyStock = (stockID) => {
     const buyModal = document.querySelector('#buyModal');
     const stockRef = firebase.database().ref(`users/${googleUserId}/portfolio`);
     stockRef.on('value', (snapshot) => {
@@ -122,6 +123,10 @@ const closeBuyModal = () => {
     buyModal.classList.toggle("is-active");
 }
 
+document.querySelector("#testBuy").addEventListener("click", (e) => {
+    saveBuy();
+});
+
 const saveBuy = () => {
     /*const noteTitle = document.querySelector("#editTitleInput").value;
     const noteText = document.querySelector("#editTextInput").value;
@@ -132,5 +137,19 @@ const saveBuy = () => {
         text: noteText
     };*/
     //buyStock(googleUserId, stockVals);
-    closeBuyModal();
+    
+    //const volume = document.querySelector("#shareVolume").value;
+    tradeStock("testID", "buy", "googl", 100);
+    tradeStock("testID", "sell", "googl", 50);
+}
+
+const tradeStock = (user, type, sym, volume) => {
+    let stock = new StockData(sym);
+
+    firebase.database().ref(`/users/${user}/portfolio/${sym}/`).push({
+        "type": type,
+        "shares": volume,
+        "cost": stock.latestPrice,
+        "date": firebase.database.ServerValue.TIMESTAMP
+    });
 }

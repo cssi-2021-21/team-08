@@ -11,12 +11,12 @@ class StockData {
 
         this.getInfo();
         this.getLogo();
-        this.getNews();
+       // this.getNews();
     }
 
     getRequest(request)
     {
-        const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}/?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
+        const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
 
         var http = new XMLHttpRequest();
 
@@ -27,7 +27,8 @@ class StockData {
             return JSON.parse(http.responseText);
         }
 
-        console.log("Http Error: ", http.statusText);
+        console.log("Http Error Status: ", http.statusText);
+        console.log("Http Error Response: ", http.ResponseText);
         return null;
     }
 
