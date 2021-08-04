@@ -12,10 +12,16 @@
     margin-top: 80px;
 }
 .background {
-background-color:  #a1caf1;
+background-color:  #EEE1C6;
+}
+.wall {
+    margin-left: 40px;
 }
 #center {
     text-align: center;
+}
+#navbar {
+    background: black;
 }
 .borderR {
     border-radius: 25px;

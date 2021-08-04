@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="" style="background-color: #EEE1C6;">
 
 <head>
     <meta charset="utf-8">
@@ -18,15 +18,9 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 </head>
 
-<body class="background columns">
-
-    <section class="section column is-half">
-         <div class="column is-three-quarter">
-                <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
-            </div>
-            <div class="column is-one-quarter">
-                <button id="submit" class="button is-normal">Search</button>
-            </div>
+<body>
+    <nav class="navbar" style="background: black">
+    <section class="section column is-half"></section>
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-burger burger" data-target="navbarMenu">
@@ -36,7 +30,7 @@
                 </span>
             </div>
             <div id="navbarMenu" class="navbar-menu">
-                <div class="navbar-end">
+                <div class="navbar-end" style="margin-right: 20px;">
                     <a class="navbar-item is-active" style="color: ghostwhite" href="index.html"> Home </a>
                     <a class="navbar-item" style="color: ghostwhite" href="stockInfo.html"> Stock Info </a>
                     <a class="navbar-item" style="color: ghostwhite"> Features </a>
@@ -48,25 +42,34 @@
         </div>
     </nav>
     <!-- END NAV -->
-    <h1 class="title margin" style="text-align: center;">
+    <div>
+    <div class="column is-three-quarter">
+                <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
+            </div>
+            <div class="column is-one-quarter">
+                <button id="submit" class="button is-normal">Search</button>
+            </div>
+    <h1 class="title" style="text-align: center; margin-bottom: 60px;">
                     Stock Info Page
                 </h1>
+    </div>
     <div class="columns">
-        <section class="section column is-two-thirds">
-            <div class="container">
-                <p class="subtitle">
-                    Company Name: <strong>Dino Nugs</strong>
-                </p>
+        <section class="column is-two-thirds" style="margin-left: 40px">
+            <div >
+                <h4 class="title is-4" style="margin-left: 250px;">
+                   <strong> Company Name: Dino Nugs</strong>
+                </h4>
             </div>
             <div>
                 <img src="https://norr.com/wp-content/uploads/2019/07/CSC-gallery-06-1920x1080.jpg"
-                    alt="Company Building Photo" width="750" height="800" />
+                    alt="Company Building Photo" width="800" height="800" style="margin-left: 20px" />
             </div>
             <div>
-                <h2 id="back">
-                    <strong>Background Info:</strong>
+                <h2 id="back" style="margin-left: 350px;">
+                    <strong>Background Info</strong>
                 </h2>
-                <p>
+                <div class=" card borderR column is-8">
+                <p class="column card-content">
                     Square, Inc. is an American financial services and
                     digital payments company based in San Francisco, '
                     California. The company was founded in 2009 by Jack
@@ -77,29 +80,34 @@
                     capitalization is valued at over US$100 billion.
                 </p>
             </div>
-            <div>
-                <h2 id="back">
-                    <strong>Market Trends:</strong>
-                </h2>
-                <p>
-                    Information that is difficult to organize
-                </p>
             </div>
             <div>
-                <h2 id="back">
-                    <strong>Price Fluctuation:</strong>
+                <h2 id="back" style="margin-left: 350px;">
+                    <strong>Market Trends</strong>
                 </h2>
-                <p>
+                <div class="card borderR column is-8">
+                <p class="column card-content">
+                    Information that is difficult to organize
+                </p>
+                </div>
+            </div>
+            <div>
+                <h2 id="back" style="margin-left: 350px;">
+                    <strong>Price Fluctuation</strong>
+                </h2>
+                <div class=" card borderR column is-8">
+                <p class="column card-content">
                     Blah Blah Blah
                 </p>
             </div>
+            </div>
         </section>
         <section class="column is-one-third">
-            <div class="">
-                <div class="card borderR">
+            <div>
+                <div class="card borderR" style="margin-top: 70px">
                     <div class="card-content">
                         <p>
-                            Stock Name: Sqaure, Inc. (SQ)
+                            Stock Name: Square, Inc. (SQ)
                         </p>
                         <p>
                             Price: $275.95
@@ -123,6 +131,6 @@
 <script src="js/key.js"></script>
 <script src="js/signIn.js"></script>
 <script type="module" src="js/stockInfo.js"></script>
-</body>
+
 
 </html>
