@@ -41,3 +41,7 @@
 .btn:hover {
   opacity: 1;
 }
+
+.subtitle {
+    color: #000000;
+}

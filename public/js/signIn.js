@@ -10,7 +10,7 @@ const signIn = () => {
 
     // The signed-in user info.
     var user = result.user;
-    window.location = 'signIn.html';
+    window.location = 'stockPortfolio.html';
   }).catch((error) => {
     // Handle Errors here.
     var errorCode = error.code;
@@ -55,10 +55,10 @@ document.querySelector(".modal-background").addEventListener("click", () => {
 
     document.querySelector("#loginButton").addEventListener("click", listenerFunction);
 
-    document.querySelector(".has-text-grey").addEventListener("click", () => {
+    document.querySelector("#signUpButton").addEventListener("click", () => {
         const confirmPass = document.querySelector("#passwordConfirmInput");
         confirmPass.classList.remove("is-hidden");
-        document.querySelector(".has-text-grey").classList.add("is-hidden");
+        document.querySelector("#signUpButton").classList.add("is-hidden");
         document.querySelector("#loginButton").innerHTML = "Create New Account";
         buttonAction = () => {
             const email = document.querySelector("#emailInput").value;
