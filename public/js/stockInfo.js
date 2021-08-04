@@ -9,7 +9,7 @@ submitButton.addEventListener("click", (e) => {
     console.log("encoded: ", sym);
     
     let stock = new StockData(sym);
-    console.log(stock.headlines());
+    //console.log(stock.headlines());
     console.log("stock company name:", stock.company)
     document.querySelector("#replaceInfo").innerHTML = displayStockData(stock);
 });

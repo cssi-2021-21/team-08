@@ -18,9 +18,15 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 </head>
 
-<body class="background">
-    <!-- START NAV -->
-    <nav class="navbar" style="background: black">
+<body class="background columns">
+
+    <section class="section column is-half">
+         <div class="column is-three-quarter">
+                <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
+            </div>
+            <div class="column is-one-quarter">
+                <button id="submit" class="button is-normal">Search</button>
+            </div>
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-burger burger" data-target="navbarMenu">
@@ -114,6 +120,9 @@
         </section>
     </div>
 </body>
+<script src="js/key.js"></script>
 <script src="js/signIn.js"></script>
+<script type="module" src="js/stockInfo.js"></script>
+</body>
 
 </html>
