@@ -3,9 +3,9 @@ class StockData {
         this.symbol = sym;
         
         this.company = null;
-        this.latestPrice = null;
-        this.changePct = null;
-        this.change = null;
+        this.latestPrice = 0;
+        this.changePct = 0;
+        this.change = 0;
         this.logo = null;
         this.news = [];
 
