@@ -86,31 +86,8 @@
                 <button id="submit" class="button is-normal">Search</button>
             </div>
         </div>
-        <div id="app" class="row columns is-multiline">
-          <div v-for="card in cardData" key="card.id" class="column is-4">
-            <div class="card large">
-              <div class="card-image">
-                <figure>
-                  <img :src="card.image" alt="Image">
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <figure class="image is-48x48">
-                      <img :src="card.avatar" alt="Image">
-                    </figure>
-                  </div>
-                  <div class="media-content">
-                    <p class="title is-4 no-padding">{{card.user.title}}</p>
-                  </div>
-                </div>
-                <div class="content">
-                  {{card.content}}
-                </div>
-              </div>
-            </div>
-          </div>
+        <div id="app" class="columns is-multiline">
+          <!-- cards should render here -->
         </div>
       </div>
     </div>
@@ -134,16 +111,6 @@
       </div>
     </footer>
      <!-- end Credit footer -->
-     
-     <script>
-        var portfolio = cardsData;
-        var app = new Vue({
-            el: '#app',
-            data: {
-                cardData: portfolio
-            }
-        })
-      </script>
 
       <script src="js/key.js"></script>
       <script type="module" src="js/landingPage.js"></script>
