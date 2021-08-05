@@ -1,18 +1,37 @@
-import {StockData} from '/js/StockData.js';
+import { StockData } from '/js/StockData.js';
 
 const queryField = document.querySelector("#search");
 const submitButton = document.querySelector("#submit");
+const info = document.querySelector("#replaceInfo")
+const comp = document.querySelector("#nameRep")
+let hidden = true;
 
 submitButton.addEventListener("click", (e) => {
     console.log("raw query: ", queryField.value);
     let sym = encodeURIComponent(queryField.value);
     console.log("encoded: ", sym);
-    
+
     let stock = new StockData(sym);
     //console.log(stock.headlines());
     console.log("stock company name:", stock.company)
-    document.querySelector("#replaceInfo").innerHTML = displayStockData(stock);
+    console.log(stock)
+    if(stock.company != null) {    
+        if(!hidden) {
+            document.getElementById('show').id = 'hidden'
+        }
+        info.innerHTML = displayStockData(stock);
+        comp.innerHTML = compName(stock);
+    }
+    else {
+        if(hidden) {
+            document.getElementById('hidden').id = 'show'
+        }
+    }
 });
+
+const fill = (stock) => {
+
+}
 
 const displayStockCard = (stock) => {
     return `
@@ -21,27 +40,45 @@ const displayStockCard = (stock) => {
 };
 const displayStockData = (stock) => {
     return `
-        <div class="hugeMargin">
-            <div class="card borderR">
-                <div class="card-content">
-                    <p>
-                        Stock Name: ${stock.company} (${stock.symbol})
-                    </p>
-                    <p>
-                        Price: $${stock.latestPrice}
-                    </p>
-                    <p>
-                        Recent Fluctuation Trends: ${stock.changePct}% +${stock.change} Today
-                    </p>
-                </div>
-            </div>
-            <div class="card margins borderR" $card-radius=0.20rem>
-                <div class="card-content">
-                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fgraphic_design%2F40023-6-graph-image-free-png-hq.png&f=1&nofb=1">
-                    </img>
-                </div>
+    <div id=replaceInfo>
+        <div class="card borderR" style="margin-top: 70px; margin-right: 80px;">
+            <div class="card-content">
+                <p>
+                    Stock Name: ${stock.company} (${stock.symbol})
+                </p>
+                <p>
+                    Price: $${stock.latestPrice}
+                </p>
+                <p>
+                    Recent Fluctuation Trends: ${stock.changePct}% +${stock.change} Today
+                </p>
             </div>
         </div>
+        <div class="card margins borderR" $card-radius=0.20rem style="margin-right: 80px;">
+            <div class="card-content">
+                <img
+                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fgraphic_design%2F40023-6-graph-image-free-png-hq.png&f=1&nofb=1"
+                    width="500"; height="500"
+>
+                </img>
+            </div>
+        </div>
+    </div>
+    `;
+}
+const compName = (stock) => {
+    return `
+        <div id="nameRep">
+                <div>
+                    <h4 class="title is-4 column is-half" style="margin-left: 20px;">
+                        <strong> Company Name: ${stock.company}</strong>
+                    </h4>
+                </div>
+                <div>
+                        <img src="https://norr.com/wp-content/uploads/2019/07/CSC-gallery-06-1920x1080.jpg"
+                        alt="Company Building Photo" width="800" height="800" style="margin-left: 20px" />
+                </div>
+            </div>
     `;
 }
 const createCard = (note) => {
