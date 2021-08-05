@@ -2,9 +2,9 @@
     background: #071e36;
 }
   body {
-  background-image: url("https://www.quoteinspector.com/media/investing/stock-price-tracking-sm.jpg");
-  /* filter: blur(4px);
-  -webkit-filter: blur(4px); */
+  background-image: url("https://cdn1.vectorstock.com/i/1000x1000/26/50/abstract-background-stock-market-background-vector-12252650.jpg");
+  /* filter: blur(1px);
+  -webkit-filter: blur(2px); */
 
   /* Full height */
    height: 100%;
@@ -13,6 +13,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; 
+  
 } 
 
 .hero-body {
@@ -30,3 +31,14 @@
   padding: 20px;
   text-align: center;
 } 
+.subtitle {
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
+}
+.title {
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
+}
+.landingTitle{
+    text-shadow: 2px 2px 8px #FF0000;
+}

@@ -40,6 +40,7 @@ document.querySelector(".modal-background").addEventListener("click", () => {
     let buttonAction = () => {
         const email = document.querySelector("#emailInput").value;
         const password = document.querySelector("#passwordInput").value;
+        const seedMoney = document.querySelector("#seedMoney").value;
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(() => {
                 window.location = "stockPortfolio.html";
@@ -61,6 +62,7 @@ document.querySelector(".modal-background").addEventListener("click", () => {
         buttonAction = () => {
             const email = document.querySelector("#emailInput").value;
             const password = document.querySelector("#passwordInput").value;
+            const seedMoney = document.querySelector("#seedMoney").value;
                 firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then(() => {
                         window.location = "stockPortfolio.html";

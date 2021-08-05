@@ -19,6 +19,10 @@ submitButton.addEventListener("click", (e) => {
         if(!hidden) {
             document.getElementById('show').id = 'hidden'
         }
+        if(stock.change === null) {
+            stock.changePct = "None"
+            stock.change = "No Change"
+        }
         info.innerHTML = displayStockData(stock);
         comp.innerHTML = compName(stock);
     }
@@ -75,8 +79,8 @@ const compName = (stock) => {
                     </h4>
                 </div>
                 <div>
-                        <img src="https://norr.com/wp-content/uploads/2019/07/CSC-gallery-06-1920x1080.jpg"
-                        alt="Company Building Photo" width="800" height="800" style="margin-left: 20px" />
+                        <img src="${stock.logo}"
+                        alt="Company Building Photo" width="600" height="600" style="margin-left: 20px" />
                 </div>
             </div>
     `;

@@ -45,3 +45,18 @@
 .subtitle {
     color: #000000;
 }
+
+body {
+  /* background-image: url("http://infimoney.in/wp-content/uploads/2014/09/wp2128229.jpg"); */
+  /* filter: blur(1px);
+  -webkit-filter: blur(2px); */
+
+  /* Full height */
+   height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  
+} 
