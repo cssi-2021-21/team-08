@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="../css/landingPage.css">
+    <link rel="stylesheet" href="../css/portfolio.css">
     <style type="text/css">
       html,
       body {
@@ -54,56 +55,76 @@
     </nav>
     <!-- END NAV -->
 
-    <section class="hero is-fullheight is-default is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="columns is-vcentered">
-                    <div class="column is-6 is-offset-3">
-                        <h1 class="title is-2">
-                            Welcome to 📈 Stock Portfolio 📊!
-                        </h1>
-                        <br>
-                        <h2 class="subtitle is-4"> Here you can view stocks and monitor progress. </h2>
-                        <br>
-                        <button class ="button is-medium is-info is-outlined" id="testBuy"> Test Buy </button>
-                        <button class ="button is-medium is-info is-outlined" onclick="saveBuy()"> Buy </button>
-                        <button class ="button is-medium is-info is-outlined" onclick="closeBuyModal()"> Sell </button>      
-                    </div>
-                    <div id="buyModal" class="modal">
-                        <div class="modal-background"></div>
-                        <div class="modal-card">
-                            <section class="modal-card-body">
-                                <label class="label">Title</label>
-                                <input class="input is-normal" id="editTitleInput" type="text">
-                                <label class="label">Text</label>
-                                <input class="input is-normal" id="editTextInput" type="text">
-                                <input id="stockID" type="hidden">
-                            </section>
-                            <footer class="modal-card-foot">
-                                <button class="button is-success" onclick="saveBuy()">Confirm buy</button>
-                                <button class="button" onclick="closeBuyModal()">Cancel</button>
-                            </footer>
-                        </div>
-                    </div>
+
+    <nav class="level ">
+            <br>
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading ">Seed Amount</p>
+            <p class="title positive" id="seed">3,456</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Current Balance</p>
+            <p class="title positive" id="balance">123</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Overall Earnings</p>
+            <p class="title positive" id="earnings">789</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+            <p class="heading">Today's Change</p>
+            <p class="title positive" id="change">456K | 4.8%</p>
+            </div>
+        </div>
+        <br>
+        <br>
+    </nav>
+    
+    <div class="container has-text-centered">
+        <div class="columns is-vcentered">
+            <div class="column is-6 is-offset-3">
+                <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
+            </div>
+            <div class="column is-one-quarter">
+                <button id="watch" class="button is-normal">Watch</button>
+                <button id="quote" class="button is-normal">Quote</button>
+            </div>
+            <div class="column is-6 is-offset-3">
+                <button class ="button is-medium is-info is-outlined" id="testBuy"> Test Buy </button>
+                <button class ="button is-medium is-info is-outlined" onclick="saveBuy()"> Buy </button>
+                <button class ="button is-medium is-info is-outlined" onclick="closeBuyModal()"> Sell </button>      
+            </div>
+            <div id="buyModal" class="modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <section class="modal-card-body">
+                        <label class="label">Title</label>
+                        <input class="input is-normal" id="editTitleInput" type="text">
+                        <label class="label">Text</label>
+                        <input class="input is-normal" id="editTextInput" type="text">
+                        <input id="stockID" type="hidden">
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button is-success" onclick="saveBuy()">Confirm buy</button>
+                        <button class="button" onclick="closeBuyModal()">Cancel</button>
+                    </footer>
                 </div>
             </div>
         </div>
-    </section>
-
-    <div class="columns is-vcentered">
-        <div class="column is-6 is-offset-3">
-            <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
-        </div>
-        <div class="column is-one-quarter">
-                <button id="watch" class="button is-normal">Watch</button>
-                <button id="quote" class="button is-normal">Quote</button>
-        </div>
     </div>
+
+
 
     <!-- START CARDS -->
      <div class="container">
       <div class="section">
-        <div id="app" class="row columns is-multiline">
+        <div id="replace" class="row columns is-multiline">
           <!--Card Replacement Happens Here-->
         </div>
       </div>

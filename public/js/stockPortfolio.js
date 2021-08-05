@@ -2,7 +2,6 @@ import {StockData} from '/js/StockData.js';
 let userId = "testID";
 
 
-
 /*
 window.onload = (event) => {
   // Use this to retain user state between html pages.
@@ -20,6 +19,74 @@ window.onload = (event) => {
   });
 };*/
 
+window.onload = event => {
+    console.log("loaded")
+    replace();
+
+}
+
+const replace = () => {
+    console.log("in replace")
+    
+    let data = getPositions();
+/*
+    for(let item in data) {
+        cards += cardCreation(item)
+        console.log(item)
+    }
+    
+    document.querySelector("#replace").innerHTML = cards*/
+}
+
+const cardCreation = (stockItem) => {
+    return `
+        <div class="column is-one-third">
+            <div class="card large">
+                <div class="columns">
+                    <div class="column is-3 is-offset-1"> 
+                        <p class="subtitle is-5"> ${stockItem.sym.toUpperCase()}</p>
+                    </div>
+                    <div class="column"> 
+                        <p class="title is-5"> ${stockItem.company}</p>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4">$${stockItem.latestPrice.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Your average buy price: $${stockItem.avgBuy.toFixed(2)}</p>
+                        <p>Your average sell price: $${stockItem.avgSell.toFixed(2)}</p>
+                        <p>Volume: ${stockItem.remShares} shares</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+
+    /*return `
+        <div class="column is-one-third">
+            <div class="card large">
+                    <p class="title is-3"> ${stockItem.company}</p>
+                    <p class="subtitle is-4"> ${stockItem.sym.toUpperCase()}</p>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4">$${stockItem.latestPrice.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Your average buy price: $${stockItem.avgBuy.toFixed(2)}</p>
+                        <p>Your average sell price: $${stockItem.avgSell.toFixed(2)}</p>
+                        <p>Volume: ${stockItem.remShares} shares</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+          `*/
+}
 
 
 document.querySelector("#testBuy").addEventListener("click", (e) => {
@@ -31,6 +98,7 @@ document.querySelector("#watch").addEventListener("click", (e) => {
     let sym = encodeURIComponent(queryField.value);
 
     addToPortfolio(sym);
+    queryField.value = "";
 });
 
 document.querySelector("#quote").addEventListener("click", (e) => {
@@ -76,10 +144,12 @@ const setTransaction = (user, type, sym, volume) => {
 }
 
 const getPositions = () => {
+    console.log("getting positions");
     const ref = firebase.database().ref(`users/${userId}/portfolio`);
     let positions = [];
 
     ref.on('value', (snapshot) => {
+        positions = [];        
         const syms = snapshot.val();
         
         console.log("start iterating...");
@@ -116,29 +186,43 @@ const getPositions = () => {
 
             sumBuyPrice = (buys > 0) ? sumBuyPrice = sumBuyPrice / buys : 0.0;
             sumSellPrice = (sells > 0) ? sumSellPrice = sumSellPrice / sells : 0.0;
-
+            
+            let stockObj = new StockData(stock);
             positions.push({
                 "sym": stock,
+                "company": stockObj.company,
+                "latestPrice": stockObj.latestPrice,
                 "avgBuy": sumBuyPrice,
                 "avgSell": sumSellPrice,
                 "remShares": sumBuyShares - sumSellShares,
                 "totalCost": sumBuyCost
             });
         };
-
-        console.log("end iterating.");
-        console.log(positions);
-        
         renderPositionsHTML(positions);
-    });    
+    }); 
+    //return positions;   
 }
 
 const renderPositionsHTML = (data) => {
     //update the card data to display the positions data for each stock in the portfolio
-    console.log(data);
+    let cards = ``;
 
-    let tsla = new StockData("tsla");
-    console.log(tsla.getNews(10));
+    for(let i = 0; i < data.length; i++) {
+        cards += cardCreation(data[i])
+    }
+    
+    document.querySelector("#replace").innerHTML = cards
 }
 
-getPositions(userId);
+const setBalance = (user, money) => {
+    firebase.database().ref(`/users/${user}/profile`).update({balance: money});
+}
+
+const getBalance = (user) => {
+    const userRef = firebase.database().ref(`users/${user}/profile`);
+    userRef.on('value', (snapshot) => {
+        const data = snapshot.val();
+        return data.balance;
+    });
+}
+

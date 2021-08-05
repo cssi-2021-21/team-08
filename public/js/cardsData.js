@@ -33,14 +33,6 @@ const renderDataAsHtml = (data) => {
   document.querySelector('#app').innerHTML = cards;
 };
 
-const buyStock = (stock, stockData) => {
-
-}
-
-const buyStock = (stock, stockData) => {
-
-}
-
 const createCard = (stock, stockData) => {
   return `
     <div class="column is-one-quarter">

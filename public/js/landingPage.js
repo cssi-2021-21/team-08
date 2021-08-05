@@ -36,6 +36,7 @@ const displayStockCard = (stock) => {
 }
 const replace = () => {
     let cards = ``;
+    
     cardsData.forEach((item, index) => {
         cards += cardCreation(item)
         console.log(item)
@@ -43,7 +44,6 @@ const replace = () => {
 
     document.querySelector("#replace").innerHTML = cards
 }
-
 
 const cardCreation = (card) => {
     console.log("Cards", card)
@@ -77,7 +77,7 @@ const cardCreation = (card) => {
 }
 
 
-let cardsData = [{
+/*let cardsData = [{
     id: 1,
     image: 'http://sevensreport.com/wp-content/uploads/2016/07/stock-market-3.jpg',
     avatar: 'http://sevensreport.com/wp-content/uploads/2016/07/stock-market-3.jpg',
@@ -144,4 +144,4 @@ let cardsData = [{
     content: 'Description of Company'
 },
 
-]
+]*/

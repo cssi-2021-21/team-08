@@ -14,7 +14,8 @@ class StockData {
 
     getRequest(request)
     {
-        const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
+        //const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
+        const urlToFetch = `https://cloud.iexapis.com/stable/stock/${this.symbol}/${request}?token=${apiKey}`; //legit token
 
         var http = new XMLHttpRequest();
 
@@ -27,6 +28,7 @@ class StockData {
 
         console.log("Http Error Status: ", http.statusText);
         console.log("Http Error Response: ", http.ResponseText);
+        console.log(http.response);
         return null;
     }
 
@@ -38,6 +40,10 @@ class StockData {
             this.changePct = data["changePercent"];
             this.change = data["change"];
         }
+    }
+
+    getLatestPrice() {
+        return this.latestPrice;
     }
 
     getLogo() {

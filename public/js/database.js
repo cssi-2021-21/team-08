@@ -40,7 +40,3 @@ export const buyStock = (user, sym, volume) => {
     firebase.database().ref(`/users/${user}/portfolio`).push({stock});
 }
 
-export const sellStock = () => {
-    
-}
-

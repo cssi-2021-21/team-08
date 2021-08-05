@@ -1,0 +1,22 @@
+
+.level{
+    background-color: black;
+    padding: 4px
+}
+
+.heading{
+    font-weight: bold;
+    color:white
+}
+
+.navbar-item{
+    color: white
+}
+
+.positive {
+    color: #07cc00
+}
+
+.negative {
+    color: red
+}
