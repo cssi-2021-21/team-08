@@ -1,20 +1,21 @@
 class StockData {
     constructor(sym) {
         this.symbol = sym;
-        
+
         this.company = null;
         this.latestPrice = 0;
         this.changePct = 0;
         this.change = 0;
         this.logo = null;
-
+        this.chart = null;
+        
         this.getInfo();
         this.getLogo();
     }
 
-    getRequest(request)
-    {
-        const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
+    getRequest(request) {
+        //const urlToFetch = `https://sandbox.iexapis.com/stable/stock/${this.symbol}/${request}?token=${apiKey}`; //sandbox --> quote endpoint = real-time data
+        const urlToFetch = `https://cloud.iexapis.com/stable/stock/${this.symbol}/${request}?token=${apiKey}`; //legit token
 
         var http = new XMLHttpRequest();
 
@@ -50,7 +51,7 @@ class StockData {
     getNews(entries) {
         let data = this.getRequest(`news/last/${entries}`);
         let news = [];
-        for(let i = 0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             news.push({
                 headline: data[i]["headline"],
                 url: data[i]["url"],
@@ -61,5 +62,5 @@ class StockData {
     }
 }
 
-export{StockData};
+export { StockData };
 
