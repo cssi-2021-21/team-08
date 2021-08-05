@@ -43,7 +43,7 @@ document.querySelector(".modal-background").addEventListener("click", () => {
         const seedMoney = document.querySelector("#seedMoney").value;
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(() => {
-                window.location = "stockPortfolio.html";
+                window.location = 'stockPortfolio.html';
             })
             .catch((error) => {
                 alert(error);
@@ -65,7 +65,7 @@ document.querySelector(".modal-background").addEventListener("click", () => {
             const seedMoney = document.querySelector("#seedMoney").value;
                 firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then(() => {
-                        window.location = "stockPortfolio.html";
+                        window.location = 'stockPortfolio.html';
                     })
                     .catch((error) => {
                         alert(error);

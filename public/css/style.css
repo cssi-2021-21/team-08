@@ -25,13 +25,14 @@
     color: #ffffff;
     text-shadow: 2px 2px #000000;
 }
-.subMessage{
-    color: #ffffff;
-    text-shadow: 2px 2px #000000;
-}
+
 .is-4{
     color: #000000;
     text-shadow: 2px 2px white;
+}
+.subMessage{
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
 }
 .is-5{
     color: #000000;
