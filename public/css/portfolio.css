@@ -27,3 +27,7 @@
 .currency::before {
     content: "$";
 }
+
+.percent::after {
+    content: "%";
+}

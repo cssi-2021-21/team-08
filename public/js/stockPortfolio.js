@@ -2,7 +2,6 @@ import {StockData} from '/js/StockData.js';
 let userId = null;
 let userName = null;
 
-
 const cardCreation = (stockItem) => {
     return `
         <div class="column is-one-third">
@@ -24,7 +23,7 @@ const cardCreation = (stockItem) => {
                     <div class="content">
                         <p>Your average buy price: $${stockItem.avgBuy.toFixed(2)}</p>
                         <p>Your average sell price: $${stockItem.avgSell.toFixed(2)}</p>
-                        <p id="heldShares">Shares: ${stockItem.remShares}</p>
+                        <p>Shares:  <span id="${stockItem.sym}_Shares">${stockItem.remShares}</span></p>
                     </div>
                 </div>
                 <footer class="card-footer">
@@ -50,35 +49,19 @@ const startBuyModal = (sym) => {
 }
 
 const startSellModal = (sym, e) => {
-    const modal = document.querySelector("#sellModal");
-    const heldShares = parseInt(document.querySelector("#heldShares").innerHTML);
-    modal.classList.toggle("is-active");
-
     const stock = new StockData(sym);
     const price = stock.latestPrice;
+    const shares = document.querySelector("#" + sym + "_Shares").innerHTML;
     
     document.querySelector("#titleSell").innerHTML = "Sell: " + sym.toUpperCase();
     document.querySelector("#sellPrice").innerHTML = `Price per share: $${price}`;
 
     document.querySelector("#sellPriceVal").value = price;
     document.querySelector("#sellStockID").value = sym;
-    document.querySelector("#remShares").value = heldShares;
-}
-
-const startSellModal2 = (e) => {
-    const modal = document.querySelector("#sellModal");
-    const heldShares = document.querySelector("#heldShares").innerHTML;
-    modal.classList.toggle("is-active");
-
-    const stock = new StockData(sym);
-    const price = stock.latestPrice;
+    document.querySelector("#remShares").value = shares;
     
-    document.querySelector("#titleSell").innerHTML = "Sell: " + sym.toUpperCase();
-    document.querySelector("#sellPrice").innerHTML = `Price per share: $${price}`;
-
-    document.querySelector("#sellPriceVal").value = price;
-    document.querySelector("#sellStockID").value = sym;
-    document.querySelector("#remShares").value = heldShares;
+    const modal = document.querySelector("#sellModal");
+    modal.classList.toggle("is-active");
 }
 
 /*
@@ -97,7 +80,6 @@ document.querySelector("#closeBuyModal").addEventListener("click", () => {
     const modal = document.querySelector("#buyModal");
     modal.classList.toggle("is-active");
 })
-
 
 document.querySelector("#saveBuy").addEventListener("click", () => {
 
@@ -135,7 +117,6 @@ document.querySelector("#saveSell").addEventListener("click", () => {
     if (shares <= heldShares) {
         setTransaction("sell", sym, shares);
         document.querySelector("#sellModal").classList.remove("is-active");
-
     } else {  
         alert(`You don't own that many shares to sell.`);
         sharesInput.value = "";
@@ -231,7 +212,6 @@ const getPositions = () => {
         };
         renderPositionsHTML(positions);
     }); 
-    //return positions;   
 }
 
 const renderPositionsHTML = (data) => {
@@ -279,7 +259,6 @@ const replace = () => {
     let data = getPositions();
 }
 
-
 window.onload = (event) => {
   // Use this to retain user state between html pages.
   console.log("loaded")
@@ -326,31 +305,54 @@ const grabBalance = () => {
     return balance;
 }
 
-const getBalance = (handler) => {
-    const userRef = firebase.database().ref(`users/${userId}/`);
-
-    console.log("In getBalance()...");
-
-    userRef.once('value', (snapshot) => {
-        const data = snapshot.val();
-        console.log("snap bal: ", data.balance);
-
-        handler(data.balance);      
-    })
-}
-
 const watchBalance = () => {
     const userRef = firebase.database().ref(`users/${userId}/`);
 
     console.log("In watchBalance()...");
 
-    userRef.once('value', (snapshot) => {
+    userRef.on('value', (snapshot) => {
         const data = snapshot.val();
         console.log("snap bal: ", data.balance);
 
         const balance = document.querySelector("#balance");
-        balance.innerHTML = data.balance.toFixed(2);     
+        balance.innerHTML = data.balance.toFixed(2);   
+        
+        const seed = getSeedMoney();
+        const bal = balance.innerHTML;
+        const change = bal - seed;
+        document.querySelector("#earnings").innerHTML = change.toFixed(2);
+
+        const percent = (change / seed) * 100;
+        document.querySelector("#change").innerHTML = percent.toFixed(2) + "%";
+
+        if(bal < 0) {
+            displayNegative(balance);
+        } else {
+            displayPositive(balance);
+        }
+
+        if(change < 0) {
+            displayNegative(document.querySelector("#earnings"));
+        } else {
+            displayPositive(document.querySelector("#earnings"));
+        }
+
+        if(percent < 0) {
+            displayNegative(document.querySelector("#change"));
+        } else {
+            displayPositive(document.querySelector("#change"));
+        }
+
     })
+}
+const displayNegative = (div) => {
+    div.classList.remove("positive");
+    div.classList.add("negative");
+}
+
+const displayPositive = (div) => {
+    div.classList.remove("negative");
+    div.classList.add("positive");
 }
 
 const updateEarnings = () => {
