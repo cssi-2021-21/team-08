@@ -43,7 +43,7 @@ document.querySelector(".modal-background").addEventListener("click", () => {
         const seedMoney = document.querySelector("#seedMoney").value;
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(() => {
-                window.location = "stockPortfolio.html";
+                window.location = 'stockPortfolio.html';
             })
             .catch((error) => {
                 alert(error);
@@ -62,10 +62,12 @@ document.querySelector(".modal-background").addEventListener("click", () => {
         buttonAction = () => {
             const email = document.querySelector("#emailInput").value;
             const password = document.querySelector("#passwordInput").value;
-            const seedMoney = document.querySelector("#seedMoney").value;
+            const seedMoney = parseInt(document.querySelector("#seedMoney").value);
+            firebase.database().ref(`/users/${user}/`).update({"balance": seedMoney})
+
                 firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then(() => {
-                        window.location = "stockPortfolio.html";
+                        window.location = 'stockPortfolio.html';
                     })
                     .catch((error) => {
                         alert(error);

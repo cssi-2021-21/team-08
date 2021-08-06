@@ -74,34 +74,38 @@
             <br>
         <div class="level-item has-text-centered">
             <div>
+                <p class="heading ">Logged in as:</p>
+                <p class="title positive" id="user">-</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
                 <p class="heading ">Seed Amount</p>
-                <p class="title positive" id="seed">3,456</p>
+                <p class="title positive currency" id="seed">-</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Current Balance</p>
-                <p class="title positive" id="balance">123</p>
+                <p class="title positive currency" id="balance">-</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Overall Earnings</p>
-                <p class="title positive" id="earnings">789</p>
+                <p class="title positive currency" id="earnings">-</p>
             </div>
         </div>
         <div class="level-item has-text-centered">
             <div>
                 <p class="heading">Today's Change</p>
-                <p class="title positive" id="change">456K | 4.8%</p>
+                <p class="title positive" id="change">-</p>
             </div>
         </div>
-        <br>
-        <br>
     </nav>
 
-    <section class="hero is-fullheight is-default is-bold">
-        <div class="hero-body">
+    <section class="mock-hero is-half-height is-default is-bold">
+        <div class="mock-hero-body">
             <div class="container has-text-centered">
                 <div class="columns is-vcentered">
                     <div class="column is-6 is-offset-3">
@@ -109,70 +113,68 @@
                             Welcome to 📈 Stock Portfolio 📊!
                         </h1>
                         <br>
-                        <h2 class="subtitle is-4"> Here you can view stocks and monitor progress. </h2>
+                        <h2 class="subtitle is-4 subMessage"> Here you can view stocks and monitor progress. </h2>
                         <br>
-                        <button class ="button is-medium is-info" id="testBuy"> Test Buy </button>
-                        <button class ="button is-medium is-info" onclick="saveBuy()"> Buy </button>
-                        <button class ="button is-medium is-info" onclick="closeBuyModal()"> Sell </button>      
-                    </div>
-                    <div id="buyModal" class="modal">
-                        <div class="modal-background"></div>
-                        <div class="modal-card">
-                            <section class="modal-card-body">
-                                <label class="label">Title</label>
-                                <input class="input is-normal" id="editTitleInput" type="text">
-                                <label class="label">Text</label>
-                                <input class="input is-normal" id="editTextInput" type="text">
-                                <input id="stockID" type="hidden">
-                            </section>
-                            <footer class="modal-card-foot">
-                                <button class="button is-success" onclick="saveBuy()">Confirm buy</button>
-                                <button class="button" onclick="closeBuyModal()">Cancel</button>
-                            </footer>
+                        <div class="columns">
+                            <div class="column is-6 is-offset-3">
+                                <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
+                            </div>
+                            <div class="column is-one-quarter">
+                                <button id="watch" class="button is-normal">Watch</button>
+                            <!--    <button id="quote" class="button is-normal">Quote</button> -->
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-        <div class="container has-text-centered">
-            <div class="columns is-vcentered">
-                <div class="column is-6 is-offset-3">
-                    <input id="search" class="input is-primary is-large" type="text" placeholder="Enter a stock symbol"/>
-                </div>
-                <div class="column is-one-quarter">
-                    <button id="watch" class="button is-normal">Watch</button>
-                    <button id="quote" class="button is-normal">Quote</button>
-                </div>
-                <div class="column is-6 is-offset-3">
-                    <button class ="button is-medium is-info is-outlined" id="testBuy"> Test Buy </button>
-                    <button class ="button is-medium is-info is-outlined" onclick="saveBuy()"> Buy </button>
-                    <button class ="button is-medium is-info is-outlined" onclick="closeBuyModal()"> Sell </button>      
-                </div>
-                <div id="buyModal" class="modal">
-                    <div class="modal-background"></div>
-                    <div class="modal-card">
-                        <section class="modal-card-body">
-                            <label class="label">Title</label>
-                            <input class="input is-normal" id="editTitleInput" type="text">
-                            <label class="label">Text</label>
-                            <input class="input is-normal" id="editTextInput" type="text">
-                            <input id="stockID" type="hidden">
-                        </section>
-                        <footer class="modal-card-foot">
-                            <button class="button is-success" onclick="saveBuy()">Confirm buy</button>
-                            <button class="button" onclick="closeBuyModal()">Cancel</button>
-                        </footer>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <div id="buyModal" class="modal">
+        <div class="modal-background"></div>z
+        <div class="modal-card">  
+            <section class="modal-card-body">
+                <p class="modal-card-title" id="titleBuy"></p>
+                <br>
+                <label class="label" id="price">Price per share: </label>
+                <label class="label">Number of shares:</label>
+                <input class="input is-normal" id="shares" type="text">
+                <input id="stockID" type="hidden">
+                <input id="priceVal" type="hidden">
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="saveBuy">Confirm Buy</button>
+                <button class="button" id="closeBuyModal">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+    <div id="sellModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <section class="modal-card-body">
+                <p class="modal-card-title" id="titleSell"></p>
+                <br>
+                <label class="label" id="sellPrice">Price per share: </label>
+                <label class="label">Number of shares: </label>
+                <input class="input is-normal" id="sellShares" type="text">
+                <input id="sellStockID" type="hidden">
+                <input id="sellPriceVal" type="hidden">
+                <input id="remShares" type="hidden">
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="saveSell">Confirm Sell</button>
+                <button class="button" id="closeSellModal">Cancel</button>
+            </footer>
+        </div>
+    </div>
 
     <!-- START CARDS -->
     <div class="container">
       <div class="section">
         <div id="replace" class="row columns is-multiline">
           <!--Card Replacement Happens Here-->
+          <button class ="button is-medium is-info buy is-hidden" id="hiddenBuy"> Buy </button>
         </div>
       </div>
     </div>
