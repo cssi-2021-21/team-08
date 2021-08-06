@@ -16,21 +16,7 @@
   
 } 
 
-.hero-body {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.9); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  /*border: 0.2px solid #f1f1f1; */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
-  text-align: center;
-} 
+ 
 .subtitle {
     color: white;
 }
@@ -38,6 +24,16 @@
     color: #ffffff;
     text-shadow: 2px 2px #000000;
 }
-.landingTitle{
-    text-shadow: 2px 2px 8px #FF0000;
+
+.is-4{
+    color: #000000;
+    text-shadow: 2px 2px white;
+}
+.subMessage{
+    color: #ffffff;
+    text-shadow: 2px 2px #000000;
+}
+.is-5{
+    color: #000000;
+    text-shadow: 2px 2px white;
 }
