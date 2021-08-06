@@ -18,5 +18,12 @@
 }
 
 .negative {
-    color: red
+    color: red;
+}
+.mock-hero {
+    background-color: rgba(0,0,0, 0.9); /* Black w/opacity/see-through */
+}
+
+.currency::before {
+    content: "$";
 }

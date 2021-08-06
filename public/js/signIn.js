@@ -62,7 +62,9 @@ document.querySelector(".modal-background").addEventListener("click", () => {
         buttonAction = () => {
             const email = document.querySelector("#emailInput").value;
             const password = document.querySelector("#passwordInput").value;
-            const seedMoney = document.querySelector("#seedMoney").value;
+            const seedMoney = parseInt(document.querySelector("#seedMoney").value);
+            firebase.database().ref(`/users/${user}/`).update({"balance": seedMoney})
+
                 firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then(() => {
                         window.location = "stockPortfolio.html";
