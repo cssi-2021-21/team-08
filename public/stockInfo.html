@@ -18,26 +18,30 @@
     <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 </head>
-
+    <style>
+        .navbar-item {
+            color: white;
+        }
+    </style>
 <body>
-    <nav class="navbar" style="background: black">
-        <section class="section column is-half"></section>
-        <div class="container">
-            <div class="navbar-brand">
-                <span class="navbar-burger burger" data-target="navbarMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-            </div>
-            <div id="navbarMenu" class="navbar-menu">
-                <div class="navbar-end" style="margin-right: 20px;">
-                    <a class="navbar-item" style="color: ghostwhite" href="signIn.html"> Sign In </a>
-                    <a class="navbar-item is-active" style="color: ghostwhite"> Stock Info </a>
-                    <a class="navbar-item" style="color: ghostwhite" href="stockPortfolio.html"> Personal Portfolio </a>
-                </div>
-            </div>
+    <nav class="navbar" style="background: black;">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
         </div>
+        <div id="navbarMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item"  href="signIn.html"> Sign In</a> 
+            <a class="navbar-item is-active"> Stock Info </a>
+            <a class="navbar-item" href="stockPortfolio.html"> Personal Portfolio </a>
+          </div>
+        </div>
+      </div>
+    </nav>
     </nav>
     <!-- END NAV -->
     <div>
@@ -127,7 +131,7 @@
                 </div>
                 <div class="card margins borderR" $card-radius=0.20rem style="margin-right: 80px;">
                     <div class="card-content">
-                        <img src="assets/Graph.PNG"
+                        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.freepngimg.com%2Fthumb%2Fgraphic_design%2F40023-6-graph-image-free-png-hq.png&f=1&nofb=1"
                             width="500" ; height="500">
                         </img>
                     </div>

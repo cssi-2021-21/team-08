@@ -20,8 +20,11 @@ background-color:  #EEE1C6;
 #center {
     text-align: center;
 }
-#navbar {
+nav {
     background: #071e36;
+}
+.navbar-item{
+    color: white
 }
 .borderR {
     border-radius: 25px;
